@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { withRouter, Route, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCards } from "../../redux/actions/cardsActions";
+
 function CardDetails(props) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cardsReducer);
@@ -15,19 +16,38 @@ function CardDetails(props) {
     setImageValue(value);
   }, []);
   return (
-    <div style={{ paddingTop: "100px" }}>
+    <div style={{ paddingTop: "80px" }}>
       {state.map((val) =>
         val.key === imgValue ? (
-          <div>
-            <h3>{val.name}</h3>
-            <p>{val.description}</p>
-            <p>{val.elixir}</p>
+          <div className="card-details" key={val.key}>
+            <img
+              src={props.location.pathname.replace("/details", "")}
+              alt={props.location.pathname.replace("/details", "")}
+            />
+            <p>
+              <span>Card Name :</span> {val.name}
+            </p>
+            <p>
+              <span>Description</span> : {val.description}
+            </p>
+            <p>
+              <span>Elixir Value</span> : {val.elixir}
+            </p>
+            <p>
+              <span>Type</span> : {val.type}
+            </p>
+            <p>
+              <span>Rarity</span> : {val.rarity}
+            </p>
+            <p>
+              <span>Arena</span> : {val.arena}
+            </p>
+            <Route>
+              <Link to="/cards">Back to Cards</Link>
+            </Route>
           </div>
         ) : null
       )}
-      <Route>
-        <Link to="/cards">Back to Cards</Link>
-      </Route>
     </div>
   );
 }
