@@ -1,0 +1,48 @@
+.navbar__container {
+  display: flex;
+  background: black;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+}
+
+.navbar__logo img {
+  width: 70px;
+}
+.navbar__links {
+  display: flex;
+  list-style-type: none;
+  align-self: center;
+}
+.navbar__links a {
+  text-decoration: none;
+  color: #808080;
+  margin-right: 20px;
+  font-weight: 500;
+}
+.navbar__links a:hover {
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+
+.navbar__searchInput {
+  align-self: center;
+  margin-right: 10px;
+}
+.navbar__searchInput a {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+.navbar__searchInput span {
+  color: black;
+  background-color: #fff;
+  padding: 3px;
+  border-radius: 3px;
+}
+.navbar__searchInput svg {
+  width: 30px;
+  color: #fff;
+}

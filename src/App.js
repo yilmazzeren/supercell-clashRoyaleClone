@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable react-hooks/exhaustive-deps */
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import Cards from "./components/Cards/Cards";
+import { Switch, Route } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import CardDetails from "./components/Cards/CardDetails";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Layout}></Route>
+        <Route path="/cards" component={Cards}></Route>
+        <Route path="/details" component={CardDetails}></Route>
+      </Switch>
     </div>
   );
 }
