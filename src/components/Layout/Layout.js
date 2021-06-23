@@ -1,13 +1,13 @@
 import React from "react";
 import hero_bg_clashroyale from "../../bg-image/hero_bg_clashroyale.jpg";
 import "./Layout.css";
-import ReactPlayer from "react-player";
-import Carousel from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
-
+import {Helmet} from "react-helmet" 
 function Layout() {
   return (
     <div>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <div className="section1">
         <img alt="img" src={hero_bg_clashroyale}></img>
       </div>
@@ -51,18 +51,7 @@ function Layout() {
         </div>
       </div>
       <div style={{ marginBottom: "50px" }}>
-        <Carousel plugins={["arrows"]}>
-          <ReactPlayer url="https://www.youtube.com/watch?v=2SqviHphY8A" />
-          <ReactPlayer url="https://www.youtube.com/watch?v=FBRWUwm0_gY" />
-
-          <ReactPlayer url="https://www.youtube.com/watch?v=4Jdp_dkduJc" />
-          <ReactPlayer url="https://www.youtube.com/watch?v=TJryIc0Cwy4" />
-          <ReactPlayer
-            style={{ marginRight: "25px" }}
-            url="https://www.youtube.com/watch?v=zbVa7koGVQY"
-          />
-          <ReactPlayer url="https://www.youtube.com/watch?v=F4AmkFBJFTA" />
-        </Carousel>
+      
       </div>
     </div>
   );

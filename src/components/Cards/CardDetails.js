@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { withRouter, Route, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCards } from "../../redux/actions/cardsActions";
+import {Helmet} from "react-helmet"
 
 function CardDetails(props) {
   const dispatch = useDispatch();
@@ -14,12 +15,17 @@ function CardDetails(props) {
       .replace("/details/static/media/", "")
       .split(".")[0];
     setImageValue(value);
-  }, []);
+    
+  }, [dispatch, props.location.pathname]);
   return (
     <div style={{ paddingTop: "80px" }}>
       {state.map((val) =>
         val.key === imgValue ? (
-          <div className="card-details" key={val.key}>
+          <div key={val.key} className="card-details">
+            
+            <Helmet>
+              <title>Card: {val.name}</title>
+            </Helmet>
             <img
               src={props.location.pathname.replace("/details", "")}
               alt={props.location.pathname.replace("/details", "")}
